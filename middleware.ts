@@ -12,13 +12,13 @@ export async function middleware(request: NextRequest) {
 
     const session = await getSession({req: requestForNextAuth});
 
-    if(!session?.user.isAdmin){
-        return NextResponse.redirect(new URL('/admin/login', request.url));
+    if(!session?.user.isAdmin) {
+        return NextResponse.rewrite(new URL('/admin/login', request.url));
     }
 
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.rewrite(new URL('/admin/dashboard', request.url));
 }
  
 export const config = {
-  matcher: '/admin/dashboard/:path*',	
+  matcher: ['/admin/dashboard/:path*', '/admin/login'],	
 }

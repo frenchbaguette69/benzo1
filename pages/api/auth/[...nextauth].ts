@@ -45,7 +45,7 @@ export default NextAuth({
                 where: {
                     email: session.user.email ?? ""
                 } 
-            })
+            });
 
             if(!user) {
                 throw new Error("No User Found!");
