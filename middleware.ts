@@ -13,10 +13,10 @@ export async function middleware(request: NextRequest) {
     const session = await getSession({req: requestForNextAuth});
 
     if(!session?.user.isAdmin){
-        return NextResponse.redirect(new URL('/admin/login', request.url))
+        return NextResponse.redirect(new URL('/admin/login', request.url));
     }
 
-    return NextResponse.redirect(new URL('/', request.url))
+    return NextResponse.redirect(new URL('/', request.url));
 }
  
 export const config = {
