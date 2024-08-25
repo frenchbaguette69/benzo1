@@ -10,7 +10,7 @@ export const orderRouter = router({
         await client.order.create({
             data: {
                 orderNumber: `ORD-${timestamp}-${randomNum}`,
-                user: {connect: { email: input.email }} 
+                user: {connect: { email: input.email }},
             }
         })
     })
