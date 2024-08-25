@@ -8,7 +8,7 @@ generator client {
 }
 
 model User {
-    id        Int   @id @default(autoincrement())
+    id        Int      @id @default(autoincrement())
     email     String   @unique
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
@@ -16,7 +16,7 @@ model User {
 }
 
 model Order {
-    id          Int         @id @default(autoincrement())
+    id          Int            @id @default(autoincrement())
     userId      Int
     user        User           @relation(fields: [userId], references: [id])
     orderNumber String         @unique
@@ -26,7 +26,7 @@ model Order {
 }
 
 model OrderProduct {
-    id        Int   @id @default(autoincrement())
+    id        Int      @id @default(autoincrement())
     orderId   Int
     order     Order    @relation(fields: [orderId], references: [id])
     productId Int
@@ -37,12 +37,20 @@ model OrderProduct {
 }
 
 model Product {
-    id           Int         @id @default(autoincrement())
+    id           Int            @id @default(autoincrement())
     name         String
     description  String
     stock        Int
+    category     ProductCategory
     price        Int
     createdAt    DateTime       @default(now())
     updatedAt    DateTime       @updatedAt
     OrderProduct OrderProduct[]
+}
+
+
+enum ProductCategory {
+    SLAAPPILLEN
+    MEDICIJNEN
+    OVERIG
 }
