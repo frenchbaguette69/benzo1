@@ -8,8 +8,7 @@ export default NextAuth({
         CredentialsProvider({
             name: "Credentials",
             credentials: {},
-            async authorize(cred: any, req) {
-
+            async authorize(cred: any) {
                 const client = new PrismaClient();
 
                 const user = await client.user.findUnique({
@@ -19,7 +18,7 @@ export default NextAuth({
                 });
 
                 if (!user) {
-                    throw new Error("No User Found!");
+                    return null;
                 }
 
                 if(bcrypt.compareSync(cred.password, user.password)){
@@ -33,7 +32,7 @@ export default NextAuth({
                     };
                 }
 
-                throw new Error("Invalid Password!");
+                return null;
             }
         })
     ],
