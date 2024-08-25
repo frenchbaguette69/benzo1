@@ -52,7 +52,7 @@ export const HomeProducts = () => {
   return (
     <section>
       <div className="container mt-20 flex flex-col items-center mb-8">
-        <h2 className="text-4xl font-bold mb-8 text-center">Onze best verkochten medicijnen</h2>
+        <h2 className="text-4xl font-bold mb-8 text-center">Onze best verkopende medicijnen</h2>
         <ProductList products={products} />
       </div>
     </section>

@@ -20,7 +20,9 @@ export const Header = ({ announcementBar, productLink }: { announcementBar: stri
       <div className="py-5">
         <div className="container">
           <div className="flex items-center justify-between">
+            <a href="">
             <Image className="md:block hidden" src={Logo} alt="Saas Logo" height={200} width={150} />
+            </a>
             <div className="flex flex-row items-center gap-2">
             <MenuIcon className="h-5 w-5 md:hidden" />
             <Image className="md:hidden " src={Logo} alt="Saas Logo" height={150} width={125} />

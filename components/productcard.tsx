@@ -17,11 +17,9 @@ export const ProductCard = ({
         <Image src={productImage} alt={productTitle} width={250} height={200} className="object-contain" />
         <h3 className="text-lg font-semibold mt-4">{productTitle}</h3>
         <p className="text-xl mt-2">{productPrice}</p>
-        <a href={productLink}>
-            <button className='btn btn-primary mt-4'>
-                Toevoegen aan winkelwagen
-            </button>
-        </a>
+        <button className='btn btn-primary mt-4'>
+          Toevoegen aan winkelwagen
+        </button>
       </div>
     </a>
   );
