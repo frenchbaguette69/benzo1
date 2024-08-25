@@ -1,9 +1,20 @@
 import Image from "next/image";
 
-export const Hero = ({ heroTitle, heroDescription, heroLink, heroImage }: { heroTitle: string, heroDescription: string, heroLink: string, heroImage: string,}) => {
+export const Hero = ({ 
+    heroTitle, 
+    heroDescription,
+    heroLink,
+    heroImage 
+}: 
+{ 
+    heroTitle: string,
+    heroDescription: string,
+    heroLink: string,
+    heroImage: string,
+}) => {
   return (
     <section
-      className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#8C52FF,#fff_100%)] overflow-x-clip"
+      className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#8C52FF,#fff_50%)] overflow-x-clip"
     >
       <div className="container">
         <div className="md:flex items-center justify-between">

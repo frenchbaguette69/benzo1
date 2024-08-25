@@ -13,7 +13,7 @@ export const ProductCard = ({
 }) => {
   return (
     <a href={productLink} className="block">
-      <div className="flex flex-col p-4 border border-gray-300 rounded-lg max-w-sm">
+      <div className="flex flex-col p-8 border border-gray-300 rounded-lg max-w-sm bg-white">
         <Image src={productImage} alt={productTitle} width={250} height={200} className="object-contain" />
         <h3 className="text-lg font-semibold mt-4">{productTitle}</h3>
         <p className="text-xl mt-2">{productPrice}</p>
