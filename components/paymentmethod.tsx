@@ -8,7 +8,7 @@ import Postnl from "@/assets/postnl.png"
 
 export const PaymentMethods = () => {
     return (
-        <div className="container pt-10">
+        <div>
             <div className="flex flex-row justify-center">
             <Image src={Ideal} alt="ideal" height={50} width={50}/>
             <Image src={Visa} alt="Visa" height={50} width={50}/>
@@ -17,7 +17,6 @@ export const PaymentMethods = () => {
             <Image src={Bitcoin} alt="Bitcoin" height={50} width={50}/>
             <Image src={Postnl} alt="Post NL" height={50} width={50}/>
             </div>
-            <h2 className="text-center text-xl mt-4">betaal methodes</h2>
         </div>
     );
 }
