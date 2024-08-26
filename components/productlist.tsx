@@ -1,30 +1,28 @@
 import { ProductCard } from "@/components/productcard";
 
 interface Product {
-  productTitle: string;
-  productPrice: string;
-  productImage: string;
-  productLink: string;
+  id: number;
+  name: string;
+  price: number;
+  imageSrc: string;
 }
 
 export const ProductList = ({ products }: { products: Product[] }) => {
-  // Slice the array to display only 3 products
-  const displayedProducts = products.slice(0, 4);
 
   return (
     <div className="mt-8">
-      <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center gap-4">
-        {displayedProducts.map((product,) => (
-            <div className="">
+      <ul className="flex flex-col sm:flex-col md:flex-col lg:flex-row justify-center gap-4">
+          {products.map(({ imageSrc, price, name, id }) => (
+            <li key={id}>
               <ProductCard
-                productTitle={product.productTitle}
-                productPrice={product.productPrice}
-                productImage={product.productImage}
-                productLink={product.productLink}
+                name={name}
+                price={price}
+                imageSrc={imageSrc}
+                id={id}
               />
-            </div>
-        ))}
-        </div>
-      </div>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 };

@@ -16,7 +16,7 @@ export async function middleware(request: NextRequest) {
         return NextResponse.rewrite(new URL('/admin/login', request.url));
     }
 
-    return NextResponse.rewrite(new URL('/admin/dashboard', request.url));
+    return NextResponse.rewrite(new URL(request.url, request.url));
 }
  
 export const config = {

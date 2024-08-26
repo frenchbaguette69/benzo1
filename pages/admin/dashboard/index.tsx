@@ -13,7 +13,7 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@
 import { Badge } from "@/components/ui/badge"
 import { signOut } from "next-auth/react"
 
-export default function Component() {
+export default function Dashboard() {
   return (
     <div className="flex min-h-screen w-full">
       <aside className="hidden w-64 flex-col border-r bg-background p-6 lg:flex">
