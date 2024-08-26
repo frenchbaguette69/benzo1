@@ -4,9 +4,6 @@ import z from 'zod';
 import fs from 'fs';
 import path from 'path';
 import { TRPCError } from '@trpc/server';
-import { get } from 'http';
-import { adminProcedure } from '@/server/middleware/procedures/user.procedure';
-
 
 export const productRouter = router({
     insert: publicProcedure.input(z.object({ name: z.string().max(70, { message: "Exceeded character limitation" }), description: z.string(), imageBase64: z.string().nullish(), price: z.number(), stock: z.number(), category: z.nativeEnum(ProductCategory) }))
@@ -29,7 +26,7 @@ export const productRouter = router({
                         name: input.name,
                         price: input.price,
                         stock: input.stock,
-                        imageSrc: filePath
+                        imageSrc: "uploads/" + `${date}_${input.name}.png`
                     }
                 });
                 return data;
