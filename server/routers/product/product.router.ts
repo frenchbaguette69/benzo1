@@ -14,7 +14,7 @@ export const productRouter = router({
 
             const date = new Date().toISOString().replace(/[-:.]/g, '').slice(0, 15);
 
-            const filePath = path.join(process.cwd(), "uploads", `${date}_${input.name}.png`);
+            const filePath = path.join(process.cwd(), "/public/uploads", `${date}_${input.name}.png`);
 
             fs.writeFileSync(filePath, b64Sanitized ?? "", "base64");
 
@@ -26,7 +26,7 @@ export const productRouter = router({
                         name: input.name,
                         price: input.price,
                         stock: input.stock,
-                        imageSrc: "@/uploads/" + `${date}_${input.name}.png`
+                        imageSrc: "/uploads/" + `${date}_${input.name}.png`
                     }
                 });
                 return data;
