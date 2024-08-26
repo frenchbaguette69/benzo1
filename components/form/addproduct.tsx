@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { ProductCategory } from "@prisma/client";
+import { CategorySelect } from "../select/categories";
 
 export const AddProduct = () => {
 
@@ -60,23 +61,7 @@ export const AddProduct = () => {
             <Label htmlFor="product-price">Price</Label>
             <Input onChange={(v) => setPrice(v.target.valueAsNumber)} id="product-price" type="number" placeholder="Enter product price" />
           </div>
-          <div>
-            <Select onValueChange={(v) => setCategory(v as ProductCategory)}>
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select a category" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Categories</SelectLabel>
-                  {enumKeys.map((key) => (
-                    <div key={key}>
-                      <SelectItem value={key}>{key}</SelectItem>
-                    </div>
-                  ))}
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
+          <CategorySelect onCategoryChange={(v) => setCategory(v)} />
         </div>
         <div>
           <Label htmlFor="product-stock">Stock</Label>

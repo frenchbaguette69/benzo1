@@ -10,14 +10,17 @@ import {
 } from "@/components/ui/pagination"
 import { useState } from "react";
 import { ProductCard } from "@/components/productcard";
+import { CategorySelect } from "@/components/select/categories";
+import { ProductCategory } from "@prisma/client";
 
 const ProductIndex = () => {
 
     const MAX_DISPLAY_PRODUCTS = 4;
 
     const [page, setPage] = useState(1);
+    const [category, setCategory] = useState<ProductCategory>("OVERIG");
 
-    const { data, refetch } = trpc.productRouter.getAllByPaginate.useQuery({ skip: page !== 1 ? (page - 1) * MAX_DISPLAY_PRODUCTS : 0, take: MAX_DISPLAY_PRODUCTS });
+    const { data, refetch } = trpc.productRouter.getAllByPaginate.useQuery({ skip: (page - 1) * MAX_DISPLAY_PRODUCTS, take: MAX_DISPLAY_PRODUCTS });
 
     const totalPages = Math.ceil((data?.productCount ?? 0) / MAX_DISPLAY_PRODUCTS);
 
@@ -28,6 +31,8 @@ const ProductIndex = () => {
 
     return (
         <div>
+            <h1 className="text-3xl font-semibold">Products</h1>
+            <CategorySelect onCategoryChange={(v) => setCategory(v)} />
             <div className="w-full grid grid-cols-4">
                 {data?.productData.map((product) => (
                     <div key={product.id}>
