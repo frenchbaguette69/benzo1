@@ -66,6 +66,6 @@ enum ProductCategory {
 
 model FaqItem {
     id       Int    @id @default(autoincrement())
-    question String
-    answser  String
+    question String @unique
+    answer   String
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { HomeProducts } from "@/components/homeproducts"
-import { FaqItems } from "@/components/faqitems";
+import { FaqItem } from "@/components/faqitem";
 import  PaymentHome  from "@/components/paymenthome"
 import { ContactHome } from "@/components/contacthome";
 import  Footer  from "@/components/footer"
@@ -13,7 +13,7 @@ export default function Index() {
       <Header />
       <Hero />
       <HomeProducts />
-      <FaqItems />
+      <FaqItem />
       <ContactHome />
       <Footer />    
     </main>

@@ -7,17 +7,8 @@ import {
 } from "@/components/ui/accordion";
 import { trpc } from "@/utils/trpc";
 
+export function FaqItem({
 
-
-
-export function FaqItems({
-  question,
-  answser,
-  id,
-}: {
-  question: string;
-  answser: string;
-  id: number;
 }) {
 
   const { data } = trpc.faqRouter.getall.useQuery();
@@ -33,13 +24,15 @@ export function FaqItems({
             </h2>
           </div>
         </div>
+        {data?.map(({ id, question, answer }) => (
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value={id.toString()}>
+              <AccordionTrigger>{question}</AccordionTrigger>
+              <AccordionContent>{answer}</AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        ))}
 
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value={id.toString()}>
-            <AccordionTrigger>{question}</AccordionTrigger>
-            <AccordionContent>{answser}</AccordionContent>
-          </AccordionItem>
-        </Accordion>
       </div>
     </section>
   );
