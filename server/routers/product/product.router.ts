@@ -9,7 +9,7 @@ import { adminProcedure } from '@/server/middleware/procedures/user.procedure';
 
 
 export const productRouter = router({
-    insert: adminProcedure.input(z.object({ name: z.string().max(70, { message: "Exceeded character limitation" }), description: z.string(), imageBase64: z.string().nullish(), price: z.number(), stock: z.number(), category: z.nativeEnum(ProductCategory) }))
+    insert: publicProcedure.input(z.object({ name: z.string().max(70, { message: "Exceeded character limitation" }), description: z.string(), imageBase64: z.string().nullish(), price: z.number(), stock: z.number(), category: z.nativeEnum(ProductCategory) }))
         .mutation(async ({ ctx: { client }, input }) => {
 
 
