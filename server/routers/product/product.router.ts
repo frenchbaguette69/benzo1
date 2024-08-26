@@ -26,7 +26,7 @@ export const productRouter = router({
                         name: input.name,
                         price: input.price,
                         stock: input.stock,
-                        imageSrc: "uploads/" + `${date}_${input.name}.png`
+                        imageSrc: "./uploads/" + `${date}_${input.name}.png`
                     }
                 });
                 return data;
