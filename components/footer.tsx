@@ -1,5 +1,6 @@
 import Logo from "@/assets/logoWhite.png";
 import Image from "next/image";
+import { PaymentMethods } from "./paymentmethod";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -29,9 +30,10 @@ const Footer = () => {
               <span className="text-white font-bold">4.8/5</span>
               <span className="text-white">met 198 beoordelingen</span>
             </div>
-            <p className="text-sm text-white mt-4">
+            <p className="text-sm text-white mt-4 mb-4">
               Copyright © {currentYear} – {currentYear + 1} ApothekerMedicijnen
             </p>
+            <PaymentMethods />
           </div>
         </div>
       </div>

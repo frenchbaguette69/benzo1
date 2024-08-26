@@ -5,16 +5,23 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { trpc } from "@/utils/trpc";
+
+
+
 
 export function FaqItems({
-  faqQuestion,
-  faqAwnser,
-  faqId,
+  question,
+  answser,
+  id,
 }: {
-  faqQuestion: string;
-  faqAwnser: string;
-  faqId: string;
+  question: string;
+  answser: string;
+  id: number;
 }) {
+
+  const { data } = trpc.faqRouter.getall.useQuery();
+
   return (
     <section className="pt-8 pb-20 md:pt-5 md:pb-10 bg-[radial-gradient(ellipse_200%_100%_at_bottom_left,#8C52FF,#fff_50%)] overflow-x-clip mt-20">
       <div className="container">
@@ -28,9 +35,9 @@ export function FaqItems({
         </div>
 
         <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value={faqId}>
-            <AccordionTrigger>{faqQuestion}</AccordionTrigger>
-            <AccordionContent>{faqAwnser}</AccordionContent>
+          <AccordionItem value={id.toString()}>
+            <AccordionTrigger>{question}</AccordionTrigger>
+            <AccordionContent>{answser}</AccordionContent>
           </AccordionItem>
         </Accordion>
       </div>

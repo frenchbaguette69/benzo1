@@ -27,7 +27,7 @@ model User {
 model Order {
     id          Int            @id @default(autoincrement())
     userId      Int
-    user        Guest           @relation(fields: [userId], references: [id])
+    user        Guest          @relation(fields: [userId], references: [id])
     orderNumber String         @unique
     products    OrderProduct[]
     createdAt   DateTime       @default(now())
@@ -46,15 +46,15 @@ model OrderProduct {
 }
 
 model Product {
-    id           Int            @id @default(autoincrement())
-    name         String         @unique
+    id           Int             @id @default(autoincrement())
+    name         String          @unique
     description  String
     imageSrc     String
     stock        Int
     category     ProductCategory
     price        Float
-    createdAt    DateTime       @default(now())
-    updatedAt    DateTime       @updatedAt
+    createdAt    DateTime        @default(now())
+    updatedAt    DateTime        @updatedAt
     OrderProduct OrderProduct[]
 }
 
@@ -62,4 +62,10 @@ enum ProductCategory {
     SLAAPPILLEN
     MEDICIJNEN
     OVERIG
+}
+
+model FaqItem {
+    id       Int    @id @default(autoincrement())
+    question String
+    answser  String
 }

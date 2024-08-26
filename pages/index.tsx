@@ -13,10 +13,9 @@ export default function Index() {
       <Header />
       <Hero />
       <HomeProducts />
-      <PaymentHome />
       <FaqItems />
       <ContactHome />
-      <Footer />
+      <Footer />    
     </main>
   );
 }
