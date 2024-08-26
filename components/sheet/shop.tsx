@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Sheet,
   SheetClose,
@@ -18,7 +16,7 @@ import { groupBy } from "@/utils"
 
 export function ShopSheet() {
 
-  const { products } = useShopStore();
+  const { products, removeProduct, addProduct } = useShopStore();
 
   const groupedProducts = groupBy(products, (product) => product.name);
 
@@ -34,11 +32,13 @@ export function ShopSheet() {
         <SheetHeader>
           <SheetTitle>Shopping Cart</SheetTitle>
           <SheetDescription>
-            Your cart is empty. Add some products to get started.
+            {!products.length && (
+              <p>Your cart is empty. Add some products to get started.</p>
+            )} 
           </SheetDescription>
         </SheetHeader>
         <div className="flex flex-col gap-4 py-4">
-          {Object.entries(groupedProducts).map(([key, value]) => (
+          {Object.entries(groupedProducts).map(([key, value], i) => (
             <div key={key} className="flex gap-4 items-center">
               <Image src={value[0].imageSrc} alt={value[0].name} width={50} height={50} />
               <div>
@@ -46,6 +46,8 @@ export function ShopSheet() {
                 <p>€ {value[0].price}</p>
               </div>
               <div>{value.length} x</div>
+              <Button onClick={() => removeProduct(value[i].id)}>-</Button>
+              <Button onClick={() => addProduct(value[0])}>+</Button>
             </div>
           ))}
         </div>

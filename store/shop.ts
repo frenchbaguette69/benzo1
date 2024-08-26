@@ -9,12 +9,12 @@ type Product = {
 
 type ShopState = {
     products: Product[];
-    addProduct: (productId: Product) => void;
-    removeProduct: (productId: Product) => void;
+    addProduct: (product: Product) => void;
+    removeProduct: (productId: number) => void;
 }
 
 export const useShopStore = create<ShopState>((set) => ({
     products: [],
     addProduct: (product) => set((state) => ({ products: [...state.products, product] })),
-    removeProduct: (product) => set((state) => ({ products: state.products.filter((p) => p.id !== product.id) }))
+    removeProduct: (productId) => set((state) => ({ products: state.products.filter((p) => p.id !== productId) }))
 }));
