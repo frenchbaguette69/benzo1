@@ -28,6 +28,17 @@ const ProductIndex = () => {
 
     return (
         <div>
+            <div className="w-full grid grid-cols-4">
+                {data?.productData.map((product) => (
+                    <div key={product.id}>
+                        <ProductCard
+                            id={product.id}
+                            name={product.name}
+                            price={product.price}
+                            imageSrc={product.imageSrc} />
+                    </div>
+                ))}
+            </div>
             <Pagination>
                 <PaginationContent>
                     <PaginationItem>
@@ -48,17 +59,6 @@ const ProductIndex = () => {
                     </PaginationItem>
                 </PaginationContent>
             </Pagination>
-            <div className="w-full grid grid-cols-4">
-                {data?.productData.map((product) => (
-                    <div key={product.id}>
-                        <ProductCard
-                            id={product.id}
-                            name={product.name}
-                            price={product.price}
-                            imageSrc={product.imageSrc} />
-                    </div>
-                ))}
-            </div>
         </div>
     )
 }
